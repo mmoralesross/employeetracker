@@ -1,0 +1,19 @@
+{
+  "name": "employeetracker",
+  "version": "1.0.0",
+  "description": "track employee information using sql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmoralesross/employeetracker.git"
+  },
+  "author": "Maria Morales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmoralesross/employeetracker/issues"
+  },
+  "homepage": "https://github.com/mmoralesross/employeetracker#readme"
+}
