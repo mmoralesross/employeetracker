@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mmoralesross/employeetracker/issues"
   },
-  "homepage": "https://github.com/mmoralesross/employeetracker#readme"
+  "homepage": "https://github.com/mmoralesross/employeetracker#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
