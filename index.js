@@ -18,7 +18,14 @@ function start (){
          type: 'list', 
          name: 'Question1',
          message: 'What do you want to do?',
-         choices:['View all employees','']
+         choices:['View all employees',
+                   'View all employees by roles',
+                   'View all employees by department',
+                   'Update Employee',
+                   'Add Employee',
+                   'Add Role',
+                   'Add Department',
+        ]
      }  
    ]).then(function(response){
        console.log (response)
