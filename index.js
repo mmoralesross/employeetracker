@@ -30,8 +30,15 @@ function start (){
    ]).then(function(response){
        console.log (response)
 
-       if (response.Question1 === 'View all employees') {
+        if (response.Question1 === 'View all employees') {
            viewAllEmployees ();
+        }
+        if (response.Question1 === 'View all employees by roles') {
+            viewAllEmployeesByRole ();
+        }
+        if (response.Question1 === 'View all employees by department') {
+                viewAllEmployeesByDepartment ();     
+
        } 
 
         
@@ -43,5 +50,36 @@ function viewAllEmployees (){
     connection.query ('SELECT * FROM employee', function(error, result){
         if (error) throw error;
         console.table (result)
+    })
+}
+
+function viewAllEmployeesByRole (){
+    connection.query ('SELECT role.title FROM role', function(error, result){
+        if (error) throw error;
+        let roles= []
+
+        result.forEach(role => {
+            roles.push (role.title)
+            console.log (roles)
+        });
+
+        inquirer.prompt ([
+           {
+            type: 'list', 
+            name: 'QuestionRole',
+            message: 'Choose a role',
+            choices: roles
+           
+           } 
+        
+        ]) .then(function(result){
+            console.log (result.QuestionRole)
+            connection.query (`SELECT employee.first_name, employee.last_name 
+            FROM employee LEFT JOIN role ON role.id = employee.role_id 
+            WHERE role.title = '${result.QuestionRole}'`, function (error, response){
+                if (error) throw error;   
+             console.table (response)       
+            })
+        })
     })
 }
